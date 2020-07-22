@@ -2,7 +2,7 @@
 Generates passwords based on given entropy. So you don't have to worry if your password is strong enough or not.  
 
 ## How to use it
-##### Generate alphanumeric password
+#### Generate alphanumeric password
 ```c#
 // RandomNumberGenerator from the system
 // see https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator?view=netcore-3.1)
@@ -21,7 +21,7 @@ Password length is computed from password entropy and used character pool which 
   
 To learn more about password strength, see [https://en.wikipedia.org/wiki/Password_strength](https://en.wikipedia.org/wiki/Password_strength)  
 
-##### Generate password from custom character pool
+#### Generate password from custom character pool
 Example 1: PIN
 ```c#
 var entropy = 128
@@ -35,7 +35,7 @@ var pool = PasswordGenerator.Alphanumerics.Union(new int[] {'*', '.', '/', '?'})
 var password = generator.GeneratePassword(entropy, pool);
 ```
 
-##### Generate password using concrete crypto service provider of random numbers
+#### Generate password using concrete crypto service provider of random numbers
 ```c#
 using System.Security.Cryptography; 
 using Raget.Security.Passwords
