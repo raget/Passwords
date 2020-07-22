@@ -34,7 +34,7 @@ namespace Raget.Security.Passwords.Tests
         {
             var generator = new PasswordGenerator(new RNGCryptoServiceProvider());
 
-            Assert.That(()=>generator.GeneratePassword(851, PasswordGenerator.Numbers), Throws.ArgumentException);
+            Assert.That(()=>generator.GeneratePassword(851, PasswordGenerator.Digits), Throws.ArgumentException);
         }
 
         [Test]
@@ -80,7 +80,7 @@ namespace Raget.Security.Passwords.Tests
             new object[] { 2, PasswordGenerator.Lowers },
             new object[] { 26, PasswordGenerator.Uppers },
             new object[] { 65, PasswordGenerator.Alphanumerics },
-            new object[] { 850, PasswordGenerator.Numbers }
+            new object[] { 850, PasswordGenerator.Digits }
         };
         
         [Test]
