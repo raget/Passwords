@@ -11,7 +11,7 @@ namespace Raget.Security.Passwords
         public static readonly IEnumerable<int> Uppers = Enumerable.Range('A', 'Z' - 'A' + 1);
         public static readonly IEnumerable<int> Digits = Enumerable.Range('0', '9' - '0' + 1);
 
-        public static readonly IEnumerable<int> Alphanumerics = Lowers.Union(Uppers).Union(Numbers).ToList();
+        public static readonly IEnumerable<int> Alphanumerics = Lowers.Union(Uppers).Union(Digits).ToList();
 
         private readonly RandomNumberGenerator _generator;
 
