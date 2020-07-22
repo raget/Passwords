@@ -1,4 +1,5 @@
-﻿# Secure random password generator for .Net Core
+﻿![Build](https://github.com/raget/Passwords/workflows/Build/badge.svg)
+# Secure random password generator for .Net Core
 Generates passwords based on given entropy. So you don't have to worry if your password is strong enough or not.  
 
 ## How to use it
