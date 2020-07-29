@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 
-namespace Raget.Security.Passwords.Examples
+namespace Raget.Security.Passwords
 {
     /// <summary>
     /// Password generator with system default random number generator

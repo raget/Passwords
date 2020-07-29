@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using Raget.Security.Passwords;
 
-namespace Raget.Security.Passwords.Examples
+namespace Examples
 {
     class Program
     {
@@ -33,7 +33,5 @@ namespace Raget.Security.Passwords.Examples
             
             Console.WriteLine(password);
         }
-        
-        
     }
 }
