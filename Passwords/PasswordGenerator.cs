@@ -5,43 +5,23 @@ using System.Security.Cryptography;
 
 namespace Raget.Security.Passwords
 {
-    public class PasswordGenerator
+    public class PasswordGenerator : IPasswordGenerator
     {
+        private readonly RandomNumberGenerator _generator;
+        
         public static readonly IEnumerable<int> Lowers = Enumerable.Range('a', 'z' - 'a' + 1);
         public static readonly IEnumerable<int> Uppers = Enumerable.Range('A', 'Z' - 'A' + 1);
         public static readonly IEnumerable<int> Digits = Enumerable.Range('0', '9' - '0' + 1);
-
         public static readonly IEnumerable<int> Alphanumerics = Lowers.Union(Uppers).Union(Digits).ToList();
 
-        private readonly RandomNumberGenerator _generator;
-
-        public PasswordGenerator(RandomNumberGenerator generator)
-        {
+        public PasswordGenerator(RandomNumberGenerator generator) =>
             _generator = generator;
-        }
-        
-        /// <summary>
-        /// Generate password from numbers and alpha characters (lower and upper case).
-        /// </summary>
-        /// <param name="minimumEntropy">Minimum entropy that password generation need to have.</param>
-        /// <exception cref="ArgumentOutOfRangeException">When minimumEntropy is less than one.</exception>
-        /// <exception cref="ArgumentNullException">When characterPool is null</exception>
-        /// <exception cref="ArgumentException">When password length computed from minimumEntropy and characterPool is longer han 256 characters.</exception>
-        /// <returns>Secure random password</returns>
-        public string GenerateAlphanumericPassword(int minimumEntropy)
-        {
-            return GeneratePassword(minimumEntropy, Alphanumerics);
-        }
 
-        /// <summary>
-        /// Generate password from given characterPool.
-        /// </summary>
-        /// <param name="minimumEntropy">Minimum entropy that password generation need to have.</param>
-        /// <param name="characterPool">Set of characters from which password should be generated.</param>
-        /// <exception cref="ArgumentOutOfRangeException">When minimumEntropy is less than one.</exception>
-        /// <exception cref="ArgumentNullException">When characterPool is null</exception>
-        /// <exception cref="ArgumentException">When password length computed from minimumEntropy and characterPool is longer han 256 characters.</exception>
-        /// <returns>Secure random password</returns>
+        /// <inheritdoc cref="IPasswordGenerator"/>
+        public string GenerateAlphanumericPassword(int minimumEntropy) =>
+            GeneratePassword(minimumEntropy, Alphanumerics);
+        
+        /// <inheritdoc cref="IPasswordGenerator"/>
         public string GeneratePassword(int minimumEntropy, IEnumerable<int> characterPool)
         {
             if (minimumEntropy < 1)
