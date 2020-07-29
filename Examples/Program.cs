@@ -20,7 +20,7 @@ namespace Raget.Security.Passwords.Examples
             
             // Example 2: Generate password from custom character pool
             var pool = PasswordGenerator.Alphanumerics.Union(new int[] {'*', '.', '/', '?', '-', '.', '_'});
-            password = PasswordGenerator.Default.GeneratePassword(entropy, pool);
+            password = defaultPasswordGenerator.GeneratePassword(entropy, pool);
             
             Console.WriteLine(password);
             
